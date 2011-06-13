@@ -1,0 +1,244 @@
+\documentclass[%
+a4paper, %apaper,  	% alle weiteren Papierformat einstellbar
+empty,         		% keine Seitenzahlen
+12pt,           	% Schriftgröße (12pt, 11pt (Standard))
+]
+{scrartcl}
+
+%% Deutsche Anpassungen
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+
+\usepackage[utf8]{inputenc}
+
+%nützliche Extras:
+\usepackage{array,
+%booktabs,
+%multirow,
+}
+\newcolumntype{x}[1]{>{\centering\hspace{0pt}}p{#1}}
+
+%Kommando für Schriftarten
+\newcommand{\changefont}[3]{\fontfamily{#1}\fontseries{#2}\fontshape{#3}\selectfont}
+
+%bietet gestrichelte vert. Linien in Tabellen (':')
+\usepackage{arydshln}
+
+%\usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm,includeheadfoot]{geometry}
+\usepackage[cm,
+%headings,
+]{fullpage}
+
+\parindent 0pt
+
+\newlength{\zwischenraum}
+\setlength{\zwischenraum}{1in}
+\newlength{\zellzwischenraum}
+\setlength{\zellzwischenraum}{1.3cm}
+
+% awesome loop stuff:
+\usepackage{forloop}
+\newcounter{ct}
+
+%% Packages für Grafiken & Abbildungen
+%\usepackage{tikz}      %%TeX ist kein Zeichenprogramm
+
+\usepackage{eso-pic}
+\AddToShipoutPicture{
+	\put(\LenToUnit{0mm},\LenToUnit{68.5mm}){\rule{\LenToUnit{15pt}}{\LenToUnit{0.5pt}}}
+	\put(\LenToUnit{0mm},\LenToUnit{148.5mm}){\rule{\LenToUnit{20pt}}{\LenToUnit{0.5pt}}}
+	\put(\LenToUnit{0mm},\LenToUnit{228.5mm}){\rule{\LenToUnit{15pt}}{\LenToUnit{0.5pt}}}
+}
+
+\begin{document}
+%\subsubsection*{Karnaugh--Diagramme}
+\begin{tabular}{cc}
+
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+
+\forloop{ct}{1}{\value{ct} < 5}
+{
+\begin{tabular}{c|c:c:c:c}
+	   & 00 & 01 & 11 & 10\\\hline
+	00 &    &    &    &   \\\hdashline
+	01 &    &    &    &   \\\hdashline
+	11 &    &    &    &   \\\hdashline
+	10 &    &    &    &   \\
+\end{tabular}
+
+\vspace{0.5\zwischenraum}
+
+\hrule
+
+\vspace{0.5\zwischenraum}
+}
+
+\begin{tabular}{c|c:c:c:c}
+	   & 00 & 01 & 11 & 10\\\hline
+	00 &    &    &    &   \\\hdashline
+	01 &    &    &    &   \\\hdashline
+	11 &    &    &    &   \\\hdashline
+	10 &    &    &    &   \\
+\end{tabular}
+
+\end{center}
+
+\end{minipage}
+
+&
+
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+
+\forloop{ct}{1}{\value{ct} < 5}
+{
+\begin{tabular}{c|c:c:c:c}
+	   & 00 & 01 & 11 & 10\\\hline
+	00 &    &    &    &   \\\hdashline
+	01 &    &    &    &   \\\hdashline
+	11 &    &    &    &   \\\hdashline
+	10 &    &    &    &   \\
+\end{tabular}
+
+\vspace{0.5\zwischenraum}
+
+\hrule
+
+\vspace{0.5\zwischenraum}
+}
+
+\begin{tabular}{c|c:c:c:c}
+	   & 00 & 01 & 11 & 10\\\hline
+	00 &    &    &    &   \\\hdashline
+	01 &    &    &    &   \\\hdashline
+	11 &    &    &    &   \\\hdashline
+	10 &    &    &    &   \\
+\end{tabular}
+
+\end{center}
+\end{minipage}
+
+\end{tabular}
+
+\newpage
+
+\begin{tabular}{cc}
+
+\begin{minipage}{0.45\textwidth} %links
+\begin{center}
+
+\forloop{ct}{1}{\value{ct} < 9}
+{
+\begin{tabular}{c|x{\zellzwischenraum}:x{\zellzwischenraum}:x{\zellzwischenraum}:x{\zellzwischenraum}}
+& 00 & 01 & 11 & 10\tabularnewline\hline
+0 & & & &\tabularnewline\hdashline
+1 & & & &
+\end{tabular}
+
+\vspace{0.5\zwischenraum}
+}
+
+\begin{tabular}{c|x{\zellzwischenraum}:x{\zellzwischenraum}:x{\zellzwischenraum}:x{\zellzwischenraum}}
+& 00 & 01 & 11 & 10\tabularnewline\hline
+0 & & & &\tabularnewline\hdashline
+1 & & & &
+\end{tabular}
+
+\end{center}
+\end{minipage}
+
+&
+
+\begin{minipage}{0.45\textwidth} %rechts
+\begin{center}
+
+\forloop{ct}{1}{\value{ct} < 9}
+{
+\begin{tabular}{ccc}
+	\begin{tabular}{c|c:c:c:c}
+	& 00 & 01 & 11 & 10\tabularnewline\hline
+	0 & & & &\tabularnewline\hdashline
+	1 & & & &
+	\end{tabular}
+& &
+	\begin{tabular}{c|c:c:c:c}
+	& 00 & 01 & 11 & 10\tabularnewline\hline
+	0 & & & &\tabularnewline\hdashline
+	1 & & & &
+	\end{tabular}
+\end{tabular}
+
+\vspace{0.5\zwischenraum}
+}
+\begin{tabular}{ccc}
+	\begin{tabular}{c|c:c:c:c}
+	& 00 & 01 & 11 & 10\tabularnewline\hline
+	0 & & & &\tabularnewline\hdashline
+	1 & & & &
+	\end{tabular}
+& &
+	\begin{tabular}{c|c:c:c:c}
+	& 00 & 01 & 11 & 10\tabularnewline\hline
+	0 & & & &\tabularnewline\hdashline
+	1 & & & &
+	\end{tabular}
+\end{tabular}
+
+\end{center}
+\end{minipage}
+
+\end{tabular}
+
+\newpage
+
+\begin{center}
+\begin{tabular}{p{1cm}|cccc:cccc|cccc|cccc|cc}
+\ & \multicolumn{8}{c|}{Folgeadresse}
+	& \multicolumn{4}{c|}{ALU OP}
+	& \multicolumn{4}{c|}{Reg}
+	& \multicolumn{2}{c}{Modus}\\
+ & 17 & 16 & 15 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0\\\hline
+\forloop{ct}{1}{\value{ct} < 7}
+{
+ & & & & & & & & & & & & & & & & & & \\\hdashline
+}
+ & & & & & & & & & & & & & & & & & & \\\hline
+\end{tabular}
+
+\vspace{0.5\zwischenraum}
+
+\begin{tabular}{p{1cm}|cccc:cccc|cccc|cccc|cc}
+\ & \multicolumn{8}{c|}{Folgeadresse}
+	& \multicolumn{4}{c|}{ALU OP}
+	& \multicolumn{4}{c|}{Reg}
+	& \multicolumn{2}{c}{Modus}\\
+ & 17 & 16 & 15 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0\\\hline
+\forloop{ct}{1}{\value{ct} < 15}
+{
+ & & & & & & & & & & & & & & & & & & \\\hdashline
+}
+ & & & & & & & & & & & & & & & & & & \\\hline
+\end{tabular}
+
+\vspace{0.5\zwischenraum}
+
+\begin{tabular}{p{1cm}|cccc:cccc|cccc|cccc|cc}
+\ & \multicolumn{8}{c|}{Folgeadresse}
+	& \multicolumn{4}{c|}{ALU OP}
+	& \multicolumn{4}{c|}{Reg}
+	& \multicolumn{2}{c}{Modus}\\
+ & 17 & 16 & 15 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0\\\hline
+\forloop{ct}{1}{\value{ct} < 15}
+{
+ & & & & & & & & & & & & & & & & & & \\\hdashline
+}
+ & & & & & & & & & & & & & & & & & & \\\hline
+\end{tabular}
+
+\end{center}
+
+\end{document}
